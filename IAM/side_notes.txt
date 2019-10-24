@@ -1,0 +1,23 @@
+creating the user through cli:
+aws iam create-user --user-name testuser
+
+creating the access key for the user:
+aws iam create-access-key --user-name testuser
+
+attaching the policy to the newly created user:
+aws iam attach-user-policy --user-name testuser --policy-arn <ARN>
+
+creating the new role: 
+aws iam create-role --role-name s3faces --assume-role-policy-document <documentname.json>
+
+attaching the policy to the role:
+aws iam attach-role-policy --role-name s3fullacess --policy-arn <ARN>
+
+creating a new instance profile:
+aws iam create-instance-profile --instance-profile-name <s3instance>
+
+attaching the role to instance profile:
+aws iam add-role-to-instance-profile --instance-profile-name <ec2acess> --role-name <s3acess>
+
+so while lauching the ec2 instnace with this profile add these arguments:
+aws ec2 run-instances --iam-instance-profile Name=<ec2acess>
