@@ -1,0 +1,9 @@
+creating the role for the lambda function:
+
+$aws iam create -role --role-name <NAME> --assume-role-policy-document file://<policyfile.json>
+
+checking the available policies:
+
+$aws iam list-policies | grep -i ec2full
+
+
